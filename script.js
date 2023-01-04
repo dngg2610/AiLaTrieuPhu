@@ -110,8 +110,8 @@ class altp {
         this.currentQuestion = 0;
         this.currentAnswer = null;
 
-        this.bgSound = new sound('d.mp3')
-        this.startSound = new sound('start.mp3')
+        this.bgSound = new sound('start.mp3')
+        this.startSound = new sound('d.mp3')
         this.waitAnswerSound = new sound('wait_answer.mp3')
         this.questionBgSound = new sound('question_bg.mp3')
         this.correctSound = new sound('correct.mp3')
@@ -132,6 +132,7 @@ class altp {
         this.ui.onClickAnswer((answer) => {
             this.currentAnswer = answer;
             this.ui.setSelectedAnswer(answer);
+            this.startSound.stop();
             this.questionBgSound.stop();
             this.waitAnswerSound.start(() => {
                 this.checkAnswer();
